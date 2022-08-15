@@ -198,26 +198,23 @@ class Program
     }
     private async Task HandleCommandAsync(SocketMessage arg)
     {
-        try
-        {
             var message = arg as SocketUserMessage;
-            var context = new SocketCommandContext(_client, message);
-            if (message.Author.IsBot)
-                return;
-
-            int argPos = 0;
-            if (message.HasStringPrefix("!", ref argPos))
+            if(message != null)
             {
-                var result = await commands.ExecuteAsync(context, argPos, services);
-                if (!result.IsSuccess)
-                    Console.WriteLine(result.ErrorReason);
-                if (result.Error.Equals(CommandError.UnmetPrecondition))
-                    await message.Channel.SendMessageAsync(result.ErrorReason);
-            }
-        }
-        catch
-        {
+                var context = new SocketCommandContext(_client, message);
+                if (message.Author.IsBot)
+                    return;
 
-        }
+                int argPos = 0;
+                if (message.HasStringPrefix("!", ref argPos))
+                {
+                    var result = await commands.ExecuteAsync(context, argPos, services);
+                    if (!result.IsSuccess)
+                        Console.WriteLine(result.ErrorReason);
+                    if (result.Error.Equals(CommandError.UnmetPrecondition))
+                        await message.Channel.SendMessageAsync(result.ErrorReason);
+                }
+            }
+        
     }
 }
