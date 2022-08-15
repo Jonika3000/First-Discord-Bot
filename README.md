@@ -1,5 +1,7 @@
 # FirstDiscordBot
 
+all commands
+
 ![image](https://user-images.githubusercontent.com/66825034/184696531-b6f394a7-a959-4090-9cc3-36c8149d541c.png)
 
 ![image](https://user-images.githubusercontent.com/66825034/184696624-72d7813d-8c6a-43c9-8f27-08e1016bc2e4.png)
